@@ -1,2 +1,4 @@
 #!/bin/bash
-python3 main.py
+
+echo "Starting bot..."
+python3 simple_feedback_bot.py

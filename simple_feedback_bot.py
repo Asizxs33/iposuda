@@ -1,4 +1,7 @@
 import asyncio
+import base64
+import os
+import json
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 from aiogram.fsm.context import FSMContext
@@ -7,20 +10,32 @@ from aiogram.fsm.storage.memory import MemoryStorage
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from dotenv import load_dotenv
 
-API_TOKEN = '8432141786:AAH9hisabxtN0VHMN_JV4bqCxDLhJqPCfBY'
-ADMIN_ID = 5832538046  # Замените на ваш Telegram ID
+load_dotenv()
+
+API_TOKEN = os.getenv("API_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
+
+# === Загрузка credentials из ENV ===
+def load_credentials_from_env():
+    credentials_b64 = os.getenv("GOOGLE_CREDENTIALS_BASE64")
+    if not credentials_b64:
+        raise Exception("Переменная GOOGLE_CREDENTIALS_BASE64 не найдена.")
+    credentials_json = base64.b64decode(credentials_b64).decode("utf-8")
+    creds_dict = json.loads(credentials_json)
+    return creds_dict
 
 # === Google Sheets Setup ===
 scope = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "credentials.json", scope)
+
+creds_dict = load_credentials_from_env()
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
-# Замените YOUR_SHEET_ID на ID вашей таблицы из URL
 SHEET_URL = "https://docs.google.com/spreadsheets/d/1QTcOVKx6vC-f3NLolQVpbpKQsYDQOhdg8ozZpevUCeY/edit#gid=0"
 try:
     sheet = client.open_by_url(SHEET_URL).sheet1
@@ -30,6 +45,8 @@ except Exception as e:
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
+
+# [Остальной код остается без изменений]
 
 
 # === Состояния ===
