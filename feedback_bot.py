@@ -195,3 +195,7 @@ async def get_comment(message: types.Message, state: FSMContext):
             print("Failed to write to Google Sheets:", e)
 
     await state.clear()
+@router.message()
+async def catch_all(message: types.Message):
+    print(f"📩 Получено сообщение от {message.from_user.id}: {message.text}")
+    await message.answer(f"Принято сообщение: {message.text}")
