@@ -2,6 +2,9 @@ services:
   - type: web
     name: iposuda
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: bash start.sh
-    pythonVersion: 3.11.9
+    pythonVersion: "3.12" # Используем Python 3.12
+    repo: https://github.com/Asizxs33/iposuda
+    branch: main # Укажите вашу ветку, например, main
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "gunicorn app:app" # Замените на вашу команду запуска, например, для Flask или FastAPI
+    autoDeploy: true # Включает автоматические деплои при пуше в GitHub
