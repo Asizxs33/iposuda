@@ -2,4 +2,7 @@ aiogram>=3.8.0 # Обновляем до последней версии
 gspread==5.12.0
 oauth2client==4.1.3
 python-dotenv==1.0.1
+fastapi==0.110.0
+uvicorn==0.27.0.post1
+
 # Убираем aiohttp, так как aiogram подтянет совместимую версию
