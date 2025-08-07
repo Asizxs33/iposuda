@@ -55,34 +55,37 @@ class Feedback(StatesGroup):
 # === Texts ===
 languages = {
     'ru': {
-        'ask_name': '👋 Как вас зовут?',
-        'ask_phone': '📱 Укажите ваш номер телефона (например +7701...):',
-        'ask_birthday': '🎂 Укажите вашу дату рождения (ДД.ММ.ГГГГ):',
-        'consultant': '👤 {name}, кто вас консультировал?',
-        'rate': '⭐ Оцените работу {consultant} от 1 до 10:',
-        'city': '🏙️ Из какого вы города?',
-        'comment': '💬 Ваш отзыв:',
-        'thank_you': 'Спасибо, {name}! Отзыв сохранен. Консультант {consultant} получит уведомление.'
+        'welcome': 'Добро пожаловать в официальный бот для отзывов "Iposuda"! �\n\nВыберите удобный язык общения:',
+        'ask_name': 'Благодарим вас за выбор "Iposuda"! 🏆\n\nДля начала, пожалуйста, укажите ваше полное имя:',
+        'ask_phone': 'Спасибо! 📱\n\nУкажите, пожалуйста, ваш контактный номер телефона в формате +7 (XXX) XXX-XX-XX:',
+        'ask_birthday': 'Благодарим за предоставленные данные! �\n\nУкажите, пожалуйста, вашу дату рождения в формате ДД.ММ.ГГГГ:\n\n*Это поможет нам делать для вас специальные предложения в день рождения!',
+        'consultant': 'Отлично! 👔\n\nУкажите, пожалуйста, имя консультанта, который вас обслуживал в "Iposuda":',
+        'rate': 'Спасибо за информацию! ⭐\n\nОцените, пожалуйста, качество обслуживания консультанта {consultant} по шкале от 1 до 10, где 10 - наивысшая оценка:',
+        'city': 'Благодарим за оценку! 🏙️\n\nУкажите, пожалуйста, ваш город:\n\n*Это помогает нам улучшать сервис в вашем регионе',
+        'comment': 'Почти готово! ✍️\n\nНапишите, пожалуйста, ваш отзыв о посещении "Iposuda":\n\n- Что вам понравилось?\n- Что мы могли бы улучшить?',
+        'thank_you': 'Искренне благодарим вас, {name}, за ваш отзыв! 💐\n\nВаше мнение очень важно для "Iposuda". Консультант {consultant} получит вашу оценку.\n\nЖдем вас снова в наших магазинах! При следующем посещении предъявите этот чат для получения специального предложения.'
     },
     'kz': {
-        'ask_name': '👋 Атыңыз кім?',
-        'ask_phone': '📱 Телефон нөміріңізді енгізіңіз:',
-        'ask_birthday': '🎂 Туған күніңіз (КК.АА.ЖЖЖЖ):',
-        'consultant': '👤 {name}, сізге кім көмектесті?',
-        'rate': '⭐ {consultant} жұмысын 1-10 аралығында бағалаңыз:',
-        'city': '🏙️ Қай қаладансыз?',
-        'comment': '💬 Пікіріңіз:',
-        'thank_you': 'Рақмет, {name}! {consultant} туралы пікіріңіз сақталды.'
+        'welcome': '"Iposuda" ресмий пікірлер ботына қош келдіңіз! �\n\nСөйлесу тілін таңдаңыз:',
+        'ask_name': '"Iposuda" таңдағаныңыз үшін рақмет! 🏆\n\nАты-жөніңізді көрсетіңіз:',
+        'ask_phone': 'Рақмет! 📱\n\nБайланыс телефон нөміріңізді +7 (XXX) XXX-XX-XX форматында көрсетіңіз:',
+        'ask_birthday': 'Ақпарат бергеніңіз үшін рақмет! 🎂\n\nТуған күніңізді КК.АА.ЖЖЖЖ форматында көрсетіңіз:\n\n*Бұл сізге туған күніңізде арнайы ұсыныстар жасауға көмектеседі!',
+        'consultant': 'Тамаша! 👔\n\n"Iposuda" да қызмет көрсетген кеңесшінің аты-жөнін көрсетіңіз:',
+        'rate': 'Ақпарат үшін рақмет! ⭐\n\n{consultant} кеңесшісінің қызмет сапасын 1-ден 10-ға дейін бағалаңыз, мұнда 10 - ең жоғары баға:',
+        'city': 'Бағаңыз үшін рақмет! 🏙️\n\nҚалаңызды көрсетіңіз:\n\n*Бұл сіздің аймақтағы қызметті жақсартуға көмектеседі',
+        'comment': 'Дайын болды! ✍️\n\n"Iposuda" сауда орталығына барғаныңыз туралы пікіріңізді жазыңыз:\n\n- Сізге не ұнады?\n- Біз неді жақсарта аламыз?',
+        'thank_you': 'Пікіріңіз үшін шын жүректен алғыс білдіреміз, {name}! 💐\n\nСіздің пікіріңіз "Iposuda" үшін өте маңызды. {consultant} кеңесшісі сіздің бағаңызды алады.\n\nСізді қайтадан дүкендерімізде күтеміз! Келесі рет осы чатты арнайы ұсыныс алу үшін көрсетіңіз.'
     },
     'uz': {
-        'ask_name': '👋 Ismingiz nima?',
-        'ask_phone': '📱 Telefon raqamingizni kiriting:',
-        'ask_birthday': '🎂 Tug‘ilgan kuningiz (KK.OY.YYYY):',
-        'consultant': '👤 {name}, kim sizga yordam berdi?',
-        'rate': '⭐ {consultant} ishini 1 dan 10 gacha baholang:',
-        'city': '🏙️ Qaysi shahardansiz?',
-        'comment': '💬 Fikringiz:',
-        'thank_you': 'Rahmat, {name}! {consultant} haqidagi fikringiz saqlandi.'
+        'welcome': '"Iposuda"ning rasmiy fikr-mulohazalar botiga xush kelibsiz! 🏏\n\nMuloqot tilini tanlang:',
+        'ask_name': '"Iposuda"ni tanlaganingiz uchun tashakkur! 🏆\n\nToʻliq ismingizni kiriting:',
+        'ask_phone': 'Rahmat! 📱\n\nIltimos, telefon raqamingizni +7 (XXX) XXX-XX-XX formatida kiriting:',
+        'ask_birthday': 'Maʼlumot uchun tashakkur! 🎂\n\nTugʻilgan kuningizni KK.OY.YYYY formatida kiriting:\n\n*Bu sizga tugʻilgan kuningizda maxsus takliflar olishga yordam beradi!',
+        'consultant': 'Ajoyib! 👔\n\n"Iposuda"da sizga xizmat koʻrsatgan maslahatchining ismini kiriting:',
+        'rate': 'Maʼlumot uchun rahmat! ⭐\n\n{consultant} maslahatchisining xizmat sifatini 1 dan 10 gacha baholang, 10 eng yuqori baho:',
+        'city': 'Baholaganingiz uchun tashakkur! 🏙️\n\nYashash shahringizni kiriting:\n\n*Bu bizga sizning mintaqangizda xizmatni yaxshilashga yordam beradi',
+        'comment': 'Tayyor! ✍️\n\n"Iposuda"ga tashrifingiz haqida fikringizni yozing:\n\n- Sizga nima yoqdi?\n- Biz nimalarni yaxshilashimiz mumkin?',
+        'thank_you': 'Fikringiz uchun chin qalbdan minnatdormiz, {name}! 💐\n\nSizning fikringiz "Iposuda" uchun juda muhim. {consultant} maslahatchisi sizning bahoyingizni oladi.\n\nSizni doʻkonlarimizda yana kutib qolamiz! Keyingi tashrifingizda maxsus taklif olish uchun ushbu chatni koʻrsating.'
     }
 }
 
@@ -102,14 +105,14 @@ router = Router()
 
 @router.message(F.text == "/start")
 async def cmd_start(message: types.Message, state: FSMContext):
-    await message.answer("🌍 Выберите язык:", reply_markup=lang_keyboard)
+    await message.answer(languages['ru']['welcome'], reply_markup=lang_keyboard)
     await state.set_state(Feedback.language)
 
 @router.message(Feedback.language)
 async def set_language(message: types.Message, state: FSMContext):
     lang = 'ru' if 'Рус' in message.text else 'kz' if 'Қаз' in message.text else 'uz' if 'O‘z' in message.text else ''
     if not lang:
-        await message.answer("Выберите язык из клавиатуры")
+        await message.answer("Пожалуйста, выберите язык из предложенных вариантов")
         return
     await state.update_data(lang=lang)
     await message.answer(languages[lang]['ask_name'], reply_markup=ReplyKeyboardRemove())
@@ -133,7 +136,7 @@ async def get_phone(message: types.Message, state: FSMContext):
 async def get_birthday(message: types.Message, state: FSMContext):
     await state.update_data(birthday=message.text)
     data = await state.get_data()
-    text = languages[data['lang']]['consultant'].format(name=data['name'])
+    text = languages[data['lang']]['consultant']
     await message.answer(text)
     await state.set_state(Feedback.consultant)
 
@@ -141,7 +144,7 @@ async def get_birthday(message: types.Message, state: FSMContext):
 async def get_consultant(message: types.Message, state: FSMContext):
     await state.update_data(consultant=message.text)
     data = await state.get_data()
-    text = languages[data['lang']]['rate'].format(consultant=data['consultant'], name=data['name'])
+    text = languages[data['lang']]['rate'].format(consultant=data['consultant'])
     await message.answer(text, reply_markup=rating_keyboard)
     await state.set_state(Feedback.rating)
 
@@ -165,17 +168,22 @@ async def get_comment(message: types.Message, state: FSMContext):
     data = await state.get_data()
 
     summary = (
-        f"📝 Новый отзыв:\n"
-        f"👤 Имя: {data['name']}\n"
-        f"📱 Телефон: {data['phone']}\n"
-        f"🎂 Дата рождения: {data['birthday']}\n"
-        f"👨‍💼 Консультант: {data['consultant']}\n"
-        f"⭐ Оценка: {data['rating']}\n"
+        f"📌 Новый отзыв для Iposuda\n"
+        f"⏰ Время: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+        f"👤 Клиент: {data['name']}\n"
+        f"📞 Контакт: {data['phone']}\n"
+        f"🎂 ДР: {data['birthday']}\n"
         f"🏙️ Город: {data['city']}\n"
-        f"💬 Комментарий: {data['comment']}"
+        f"👨‍💼 Консультант: {data['consultant']}\n"
+        f"⭐ Оценка: {data['rating']}/10\n"
+        f"📝 Комментарий:\n{data['comment']}\n\n"
+        f"#отзыв #iposuda"
     )
 
-    thank = languages[data['lang']]['thank_you'].format(name=data['name'], consultant=data['consultant'])
+    thank = languages[data['lang']]['thank_you'].format(
+        name=data['name'],
+        consultant=data['consultant']
+    )
     await message.answer(thank)
 
     try:
@@ -189,13 +197,13 @@ async def get_comment(message: types.Message, state: FSMContext):
             sheet.append_row([
                 data['name'], data['phone'], data['birthday'],
                 data['consultant'], data['rating'], data['city'],
-                data['comment'], now
+                data['comment'], now, data.get('lang', 'ru')
             ])
         except Exception as e:
             print("Failed to write to Google Sheets:", e)
 
     await state.clear()
+
 @router.message()
 async def catch_all(message: types.Message):
-    print(f"📩 Получено сообщение от {message.from_user.id}: {message.text}")
-    await message.answer(f"Принято сообщение: {message.text}")
+    await message.answer("Благодарим за ваше сообщение! Для начала работы с ботом Iposuda отправьте команду /start")
