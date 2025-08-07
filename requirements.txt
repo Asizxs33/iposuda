@@ -2,4 +2,4 @@ aiogram==2.25.1
 gspread==5.12.0
 oauth2client==4.1.3
 python-dotenv==1.0.1
-aiohttp>=3.9.5 # Добавьте последнюю версию, например, 3.9.5
+aiohttp==3.8.6 # Фиксируем версию, совместимую с aiogram
