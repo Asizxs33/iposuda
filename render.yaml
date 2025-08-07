@@ -6,7 +6,7 @@ services:
     repo: https://github.com/Asizxs33/iposuda
     branch: simple_feedback_bot # Укажите вашу ветку, например, main
     buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
-    startCommand: "python simple_feedback_bot.py" # Замените на вашу команду, например, python bot.py для aiogram
+    startCommand: "python feedback_bot.py" # Замените на вашу команду, например, python bot.py для aiogram
     autoDeploy: true # Автоматические деплои при пуше в GitHub
     envVars:
       - key: PYTHONUNBUFFERED
