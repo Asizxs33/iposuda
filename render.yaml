@@ -2,9 +2,12 @@ services:
   - type: web
     name: iposuda
     env: python
-    pythonVersion: "3.12" # Используем Python 3.12
+    pythonVersion: "3.12" # Указываем Python 3.12
     repo: https://github.com/Asizxs33/iposuda
-    branch: main # Укажите вашу ветку, например, main
+    branch: simple_feedback_bot # Укажите вашу ветку, например, main
     buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
-    startCommand: "gunicorn app:app" # Замените на вашу команду запуска, например, для Flask или FastAPI
-    autoDeploy: true # Включает автоматические деплои при пуше в GitHub
+    startCommand: "python simple_feedback_bot.py" # Замените на вашу команду, например, python bot.py для aiogram
+    autoDeploy: true # Автоматические деплои при пуше в GitHub
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1" # Для вывода логов в реальном времени
