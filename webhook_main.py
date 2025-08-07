@@ -1,12 +1,13 @@
 import os
+import json
 from fastapi import FastAPI, Request
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
-from feedback_bot import router
 from aiogram.types import Update
+from feedback_bot import router
 
 API_TOKEN = os.getenv("API_TOKEN")
-WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Пример: https://your-app-name.onrender.com
+WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Пример: https://iposuda.onrender.com
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -28,8 +29,9 @@ async def shutdown():
 
 @app.post("/webhook")
 async def handle_webhook(req: Request):
-    data = await req.json()
-    update = Update.model_validate(data)
+    raw_body = await req.body()
+    print("🔔 Входящий апдейт:", raw_body.decode())
+    update = Update.model_validate(json.loads(raw_body))
     await dp.feed_update(bot, update)
     return {"ok": True}
 
