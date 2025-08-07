@@ -1,4 +1,1 @@
-#!/bin/bash
-
-echo "Starting bot..."
-python3 simple_feedback_bot.py
+uvicorn webhook_main:app --host 0.0.0.0 --port 10000
