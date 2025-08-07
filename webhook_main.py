@@ -30,7 +30,7 @@ async def shutdown():
 @app.post("/webhook")
 async def handle_webhook(req: Request):
     raw_body = await req.body()
-    print("🔔 Входящий апдейт:", raw_body.decode())
+    print("🔔 Входящий апдейт:", raw_body.decode())  # ← вот это очень важно
     update = Update.model_validate(json.loads(raw_body))
     await dp.feed_update(bot, update)
     return {"ok": True}
